@@ -3,7 +3,19 @@
 
 /* Colours */
 .bg-color-name-title {
-    background-color: #676767;
+    background-color: #546b5b;
+}
+.ui-menu-color-home {
+    background-color: #546b5b;
+}
+.ui-menu-color-menu {
+    background-color: #546b5b;
+}
+.ui-menu-color-bookings {
+    background-color: #546b5b;
+}
+.ui-menu-color-cancel {
+    background-color: #546b5b;
 }
 /* Heading Styles */
 header {
@@ -40,4 +52,27 @@ header {
     margin-top: 20px;
     margin-bottom: 90px;
     color: #fff;
+}
+
+.social-networks {
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.social-networks i {
+    color: #3b202edb;
+    font-size: 200%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 0%;
+    text-decoration: none;
+    }
+
+#social-networks a {
+    text-decoration: none;
 }
