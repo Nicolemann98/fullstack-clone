@@ -17,6 +17,24 @@
 .ui-menu-color-cancel {
     background-color: #8a9eb8;
 }
+
+/* General style rules for margins/padding/text */
+
+h1,h2,h3,h4,h5,h6 {
+    margins: 0;
+}
+
+.uppercase {
+    text-transform : uppercase;
+}
+
+.general-sub {
+    font-family: "Exo", sans-serif;
+    font-weight: 400;
+    color: #242121;
+
+
+}
 /* Heading Styles */
 header {
     margin: 0;
@@ -106,25 +124,10 @@ header {
     height: 80px;
 }
 
-.social-networks {
-    text-align: center;
-    list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px 0;
-    width: 100%;
-}
+/* Footer styling */
 
-.social-networks i {
-    color: #000000;
-    font-size: 200%;
-    padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 0% ;
-    text-decoration: none;
-    }
-
-#social-networks a {
-    text-decoration: none;
+footer {
+    background-color: #5c8f6b;
+    color: #242121
+    min-height: 150px;
 }
