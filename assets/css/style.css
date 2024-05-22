@@ -10,6 +10,10 @@
 background-color: #fafafa;
 }
 
+.bg-color-contact-details {
+background-color: #8a9eb8;
+}
+
 .ui-menu-color-home {
     background-color: #8a9eb8;
 }
@@ -27,6 +31,9 @@ background-color: #fafafa;
 }
 
 /* General style rules for margins/padding/text */
+body {
+    position: relative;
+}
 
 h1,h2,h3,h4,h5,h6 {
     margins: 0;
@@ -78,7 +85,7 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 250px;
+    min-height: 360px;
     transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
@@ -147,6 +154,30 @@ header {
     letter-spacing: 2px;
 }
 
+.computers {
+    background: url("../images/computers.jpg");
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    
+    
+}
+
+.img-fluid {
+    height: auto;
+    width: 66%;
+    margin-right: -15px;
+}
+
+.img-row {
+    max-width: 100%;
+
+}
+   
 /* Style rules for Menu page */
 
 .menu-pdf i {
@@ -202,4 +233,30 @@ footer {
 
 #footer-details {
     padding: 20px;
+}
+
+/* Why visit section styling */
+
+.why-visit-icon {
+font-size: 30px;
+color: #8a9eb8;
+}
+
+.why-visit-heading {
+margin-bottom: 15px;
+}
+
+/* Contact details */
+
+.contact-detail-item {
+    margin-bottom: 20px;
+    display: block;
+    clear: both;
+    font-family: "Roboto" , sans-serif;
+}
+
+.container-fluid {
+    text-align: center;
+    position: left;
+
 }
