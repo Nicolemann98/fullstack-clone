@@ -5,15 +5,23 @@
 .bg-color-name-title {
     background-color: #5c8f6b;
 }
+
+.bg-color-why-visit {
+background-color: #fafafa;
+}
+
 .ui-menu-color-home {
     background-color: #8a9eb8;
 }
+
 .ui-menu-color-menu {
     background-color: #8ab897;
 }
+
 .ui-menu-color-bookings {
     background-color: #8ab897;
 }
+
 .ui-menu-color-cancel {
     background-color: #8a9eb8;
 }
@@ -32,10 +40,31 @@ h1,h2,h3,h4,h5,h6 {
     font-family: "Exo", sans-serif;
     font-weight: 400;
     color: #242121;
-
-
 }
+
+.inline-block {
+    display: inline-block;
+}
+
+.row-table{
+display: table;
+}
+
+.section-column {
+    display: table-cell;
+    padding: 0 30px 30px;
+    float: none;
+}
+
+.section-heading {
+    font-family: "Exo" , sans-serif;
+    font-weight: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 /* Heading Styles */
+
 header {
     margin: 0;
 }
@@ -118,6 +147,23 @@ header {
     letter-spacing: 2px;
 }
 
+/* Style rules for Menu page */
+
+.menu-pdf i {
+    font-size: 20px;
+    color: #242121;
+    text-align: center; 
+    padding-left: 7px;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.menu-pdf i:hover {
+    color: #968f8f;
+}
+
 /* Hover.css */ 
 .hvr-sweep-to-bottom:before {
     background-color: #00000052;
@@ -128,6 +174,32 @@ header {
 
 footer {
     background-color: #5c8f6b;
-    color: #242121
+    color: #242121;
     min-height: 150px;
+}
+
+.social-links {
+    padding-bottom: 20px;
+}
+
+.social-links li a i {
+    width: 40px;
+    height: 40px;
+    padding: 14px 0;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 8px;
+    text-align: center;
+    color:#242121;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+.social-links li a i:hover {
+  background-color: #968f8f;  
+}
+
+#footer-details {
+    padding: 20px;
 }
