@@ -10,18 +10,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 
     <!-- Favicon for site-->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
 </head>
 <body>
+    
     <header>
         <div class="row no-gutters">
-            <a class="col-md-4 logo" href="index.html"></a>
+            <a class="col-md-4 logo" href="{{ url_for('index') }}"></a>
             <div class="col-md-8">
                 <div class="row no-gutters bg-color-name-title">
                     <div class="col heading">
@@ -35,19 +36,19 @@
                     <div class= "col">
                         <ul id="nav" class="list-inline menucontainer">
                             <li class="col-6 col sm-3 ui-menu-color-home list-inline-item menuitem">
-                                <a href="index.html" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-house" aria-hidden="true"></i> <span> Home </span></a>
+                                <a href="{{ url_for('index') }}" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-house" aria-hidden="true"></i> <span> Home </span></a>
                             </li>
 
                             <li class="col-6 col sm-3 ui-menu-color-menu list-inline-item menuitem">
-                                <a href="menu.html" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-book-open" aria-hidden="true"></i> <span> Menu </span></a>
+                                <a href="{{ url_for('menu') }}" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-book-open" aria-hidden="true"></i> <span> Menu </span></a>
                             </li>
 
                             <li class="col-6 col sm-3 ui-menu-color-bookings list-inline-item menuitem">
-                                <a href="bookings.html" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> <span> Bookings </span></a>
+                                <a href="{{ url_for('bookings') }}" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> <span> Bookings </span></a>
                             </li>
 
                             <li class="col-6 col sm-3 ui-menu-color-cancel list-inline-item menuitem">
-                                <a href="cancel.html" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-ban" aria-hidden="true"></i> <span> Cancellation </span></a>
+                                <a href="{{ url_for('cancel') }}" class="hvr-sweep-to-bottom"> <i class="fa-solid fa-ban" aria-hidden="true"></i> <span> Cancellation </span></a>
                             </li>
 
                         </ul>
@@ -56,7 +57,7 @@
             </div>
         </div>
     </header>
-
+    
     <section class="container-fluid">
         <div class="row">
             <div class="col-md-4 bg-color-contact-details section-column">   
@@ -105,12 +106,6 @@
                     </div> 
                 </div>
             </div> 
-        </div>
-        
-        <div class="img-row">
-            <div class= "col-md-12">
-            <img src="assets/images/computers.jpg" class="img-fluid" alt="People working at computers">
-            </div>
         </div>
 
             <div class="col-md-8 bg-color-why-visit section-column">
@@ -162,9 +157,9 @@
                             <div class="col-10">
                                 <h5 class="why-visit-heading uppercase"> Our delicious menu </h5>
                                 <p>
-                                   In addition to our amazing workspace, we offer customers the opportunity to purchase a range of freshly made 
-                                   hot and cold beverages from our menu (and yes we offer free refills) we also have an in-house baker
-                                   that bakes fresh cakes and biscuits daily, and breads for our delicious sandwiches.
+                                    In addition to our amazing workspace, we offer customers the opportunity to purchase a range of freshly made 
+                                    hot and cold beverages from our menu (and yes we offer free refills) we also have an in-house baker
+                                    that bakes fresh cakes and biscuits daily, and breads for our delicious sandwiches.
                                 </p>
                             </div>
                         </div>
@@ -181,7 +176,7 @@
                                         We are passionate about technology and the endless possibilities that coding provides, that's why our staff are
                                         all from a tech background and are fluent in a variety of coding languages, meaning they can both serve you coffee, 
                                         and help you troubleshoot any projects.Our customers are all like-minded developers across an array of capabilities,
-                                         meaning all are welcome whether you're a beginner or a pro.
+                                            meaning all are welcome whether you're a beginner or a pro.
                                     </p>
                                 </div>
                             </div>
@@ -190,6 +185,10 @@
             </div>
 
     </section>
+    <a href="#" target="_blank" class="menu-pdf">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <span class="sr-only"> Download menu </span>
+    </a>
     <!-- Footer including additional information and links to the page's social media -->
     <footer class="container-fluid">
         <div id="footer-details" class="row">
@@ -273,6 +272,4 @@
       crossorigin="anonymous"> 
     </script>
 </body>
-
-
 </html>
