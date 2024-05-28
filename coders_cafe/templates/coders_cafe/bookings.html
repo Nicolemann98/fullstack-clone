@@ -12,7 +12,16 @@
     <li class="nav-item">
         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
     </li>
+
+    <h1>Your bookings</h1>
+    {% for booking in object_list %}
+    <p>Start Time: {{booking.start_time}}</p>
+    <p>Number seats: {{booking.num_seats}}</p>
+    <p>Click here to edit *TODO*</p>
+    {% endfor %}
+
     {% else %}
+    <h1>Please log in to view or create a booking</h1>
     <li class="nav-item">
         <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
             href="{% url 'account_signup' %}">Register</a>
@@ -21,13 +30,6 @@
         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
     </li>
     {% endif %}
-
-    <h1>Bookings list</h1>
-    {% for booking in object_list %}
-    <h2>User: {{booking.user_id}}</h2>
-    <p>Start Time: {{booking.start_time}}</p>
-    <p>Number seats: {{booking.num_seats}}</p>
-    {% endfor %}
 </section>
 
     
