@@ -17,7 +17,7 @@
     {% for booking in object_list %}
     <p>Start Time: {{booking.start_time}}</p>
     <p>Number seats: {{booking.num_seats}}</p>
-    <p>Click here to edit *TODO*</p>
+    <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
     {% endfor %}
 
     {% else %}

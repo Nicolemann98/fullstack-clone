@@ -1,53 +1,33 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Booking
+# from .forms import BookingForm
 
 # Create your views here.
 class BookingList(generic.ListView):
-    queryset = Booking.objects.filter(user_id=2)
+    model = Booking
     template_name = "coders_cafe/bookings.html"
-    paginate_by = 6
+    context_object_name = 'all_bookings_by_user'
+
+    def get_queryset(self):
+        if (not self.request.user.is_authenticated):
+            return Booking.objects.none()
+            
+        return Booking.objects.filter(user=self.request.user)
 
 
-class Index(generic.ListView):
-    queryset = Booking.objects.filter(user_id=2)
-    template_name = "coders_cafe/index.html"
-    paginate_by = 6
-
-
-class Cancel(generic.ListView):
-    queryset = Booking.objects.filter(user_id=2)
-    template_name = "coders_cafe/cancel.html"
-    paginate_by = 6
-
-
-class Menu(generic.ListView):
-    queryset = Booking.objects.filter(user_id=2)
-    template_name = "coders_cafe/menu.html"
-    paginate_by = 6
-
-
-def booking_detail(request, booking_id):
-    print("The booking id is" + booking_id)
-
-    """
-    Display an individual :model:`coders_cafe.Booking`.
-
-    **Context**
-
-    ``booking``
-        An instance of :model:`coders_cafe.Booking`.
-
-    **Template:**
-
-    :template:`coders_cafe/booking_detail.html`
-    """
-
-    queryset = Booking.objects.filter(id=booking_id)
-    booking = get_object_or_404(queryset)
+def manage_booking(request, booking):
+    try:
+        booking = Booking.objects.get(pk=booking)
+    except Booking.DoesNotExist:
+        booking = None
+    # booking_form = BookingForm()
 
     return render(
         request,
-        "coders_cafe/booking_detail.html",
-        {"booking": booking},
+        "coders_cafe/manage_booking.html",
+        {
+            "booking": booking,
+            # "booking_form": booking_form,
+        },
     )
