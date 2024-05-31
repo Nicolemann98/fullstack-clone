@@ -7,28 +7,25 @@
 <!-- bookings.html content starts here -->
 
 <section>
+    <h1>Your Bookings</h1>
 
     {% if user.is_authenticated %}
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-    </li>
 
-    <h1>Your bookings</h1>
-    {% for booking in object_list %}
-    <p>Start Time: {{booking.start_time}}</p>
-    <p>Number seats: {{booking.num_seats}}</p>
-    <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
-    {% endfor %}
+    <div class="bookings">
+        <p>Welcome {{user.first_name}} {{user.last_name}}</p>
+        {% for booking in object_list %}
+        <div class="booking">
+            <p>Start Time: {{booking.start_time}}</p>
+            <p>Number seats: {{booking.num_seats}}</p>
+            <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
+        </div>
+        {% endfor %}
+    </div>
 
     {% else %}
-    <h1>Please log in to view or create a booking</h1>
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-            href="{% url 'account_signup' %}">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-    </li>
+    <p>Please 
+        <a class="link" href="{% url 'account' %}">sign in on our account page</a>
+    to view or create a booking</p>
     {% endif %}
 </section>
 

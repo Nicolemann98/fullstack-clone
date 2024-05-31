@@ -4,12 +4,13 @@
 
 {% block content %}
 
-<!-- cancel.html content starts here -->
+<!-- account.html content starts here -->
 
-<p>This is the cancellation page</p>
+<h2>Account</h2>
 
 
 {% if user.is_authenticated %}
+<p>Welcome {{user.name}}</p>
 <li class="nav-item">
     <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
 </li>
