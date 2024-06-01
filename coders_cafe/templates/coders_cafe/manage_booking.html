@@ -1,18 +1,37 @@
 {% extends "base.html" %}
-
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 <!-- booking_detail.html content starts here -->
 
 <section>
-    <h1>Manage Booking</h1>
-    <p>{{user.first_name}} {{user.last_name}}</p>
-    <p>Start Time: {{booking.start_time}}</p>
-    <p>Number seats: {{booking.num_seats}}</p>
-    <p>hgetuqpigbdayt bhlk esgear kl</p>
+    
+    {% if not booking %}
+    <p>You are not authorised to view this booking</p>
+    {% else %}
+    <form id="bookingForm" method="POST">
+      <h1>Manage Booking</h1>
+      <p>{{user.user_name}}</p>
+      {% csrf_token %}
+      {{ booking_form }}
+      <button
+        id="submitButton"
+        type="submit"
+        class="btn btn-signup btn-lg"
+        booking_id="{{booking.id}}"
+      >
+        Submit
+      </button>
+    </form>
+
+    {% endif %}
 </section>
 
     
+{% endblock content %}
+
+{% block extras %}
+<!-- <script src="{% static 'js/bookings.js' %}"></script> -->
 {% endblock %}

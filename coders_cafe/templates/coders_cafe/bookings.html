@@ -12,7 +12,7 @@
     {% if user.is_authenticated %}
 
     <div class="bookings">
-        <p>Welcome {{user.first_name}} {{user.last_name}}</p>
+        <p>Welcome {{user.user_name}}</p>
         {% for booking in object_list %}
         <div class="booking">
             <p>Start Time: {{booking.start_time}}</p>

@@ -7,5 +7,6 @@ urlpatterns = [
     path('menu/', TemplateView.as_view(template_name='coders_cafe/menu.html'), name='menu'),
     path('account/', TemplateView.as_view(template_name='coders_cafe/account.html'), name='account'),
     path('bookings/', views.BookingList.as_view(), name='bookings'),
-    path('manage-booking/<int:booking>', views.manage_booking, name='manage_booking')
+    path('manage-booking/<int:booking_id>', views.manage_booking, name='manage_booking'),
+    path('manage-booking/thanks', TemplateView.as_view(template_name='coders_cafe/index.html'), name='index'),
 ]
