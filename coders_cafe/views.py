@@ -27,17 +27,35 @@ def manage_booking(request, booking_id):
         if booking_form.is_valid():
             booking = booking_form.save(commit=False)
             booking.save()
-            return HttpResponseRedirect("thanks")
+            return HttpResponseRedirect("success")
     else:
         booking_form = BookingForm(instance=booking)
     
-
-
     return render(
         request,
         "coders_cafe/manage_booking.html",
         {
             "booking": booking,
+            "booking_form": booking_form,
+        },
+    )
+
+
+def create_booking(request):
+    if request.method == "POST":
+        booking_form = BookingForm(data=request.POST)
+        if booking_form.is_valid():
+            booking = booking_form.save(commit=False)
+            setattr(booking, "user", request.user)
+            booking.save()
+            return HttpResponseRedirect("success")
+    else:
+        booking_form = BookingForm()
+
+    return render(
+        request,
+        "coders_cafe/create_booking.html",
+        {
             "booking_form": booking_form,
         },
     )

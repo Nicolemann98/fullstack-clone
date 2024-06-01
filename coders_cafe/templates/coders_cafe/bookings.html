@@ -13,6 +13,9 @@
 
     <div class="bookings">
         <p>Welcome {{user.user_name}}</p>
+        <a href="{% url 'create_booking' %}">
+            Create new booking
+        </a>
         {% for booking in object_list %}
         <div class="booking">
             <p>Start Time: {{booking.start_time}}</p>
