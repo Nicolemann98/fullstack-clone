@@ -59,3 +59,11 @@ def create_booking(request):
             "booking_form": booking_form,
         },
     )
+
+
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, pk=booking_id)
+
+    if (booking.user == request.user):
+        booking.delete()
+        return HttpResponseRedirect("success")

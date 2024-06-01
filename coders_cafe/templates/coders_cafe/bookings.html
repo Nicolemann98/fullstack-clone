@@ -21,6 +21,7 @@
             <p>Start Time: {{booking.start_time}}</p>
             <p>Number seats: {{booking.num_seats}}</p>
             <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
+            <a href="{% url 'delete_booking' booking.id %}">Delete Booking</a>
         </div>
         {% endfor %}
     </div>
