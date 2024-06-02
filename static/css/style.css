@@ -174,7 +174,6 @@ body, html {
     height: 100%;
 }
 .container-fluid .img-fluid {
-    background: url("../images/computers.jpg");
     position: relative;
     min-width: 100%;
     min-height: 100%;
@@ -185,6 +184,8 @@ body, html {
     -moz-transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;    
 }
+
+
 
 .img-row {
     max-width: 100%;
@@ -207,6 +208,55 @@ body, html {
     color: #968f8f;
 }
 
+/* Style rules for bookings page */
+
+.bookings {
+    font-family: "Exo", sans-serif;
+    font-size: 20px;
+    color: #242121;
+    text-align: left; 
+    padding-left: 40px;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+
+}
+
+.booking a {
+
+    margin-bottom: 30px;
+    margin-top: 30px; 
+}
+
+.booking p {
+    margin-top: 20px;
+
+}
+/* Style rules for account page */
+
+.nav-item {
+    font-family: "Exo", sans-serif;
+    font-size: 20px;
+    color: #242121;
+    padding-left: 40px;
+}
+
+.nav-item::marker {
+    color: #ffffff;
+}
+
+.container {
+    font-family: "Exo", sans-serif;
+    font-size: 20px;
+    color: #242121;
+    padding-left: 40px;
+    font-weight: 200;
+
+}
+h1 {
+    font-family: "Exo", sans-serif;
+}
 /* Hover.css */ 
 .hvr-sweep-to-bottom:before {
     background-color: #00000052;
