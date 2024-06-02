@@ -11,6 +11,7 @@
   <form id="bookingForm" method="POST">
     <h1>Create Booking</h1>
     <p>{{user.user_name}}</p>
+    <p>All bookings have a duration of 1 hour</p>
     {% csrf_token %}
     {{ booking_form }}
     <button

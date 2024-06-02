@@ -13,15 +13,16 @@
 
     <div class="bookings">
         <p>Welcome {{user.user_name}}</p>
+        <p>All bookings have a duration of 1 hour</p>
         <a href="{% url 'create_booking' %}">
             Create new booking
         </a>
         {% for booking in object_list %}
         <div class="booking">
-            <p>Start Time: {{booking.start_time}}</p>
-            <p>Number seats: {{booking.num_seats}}</p>
-            <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
-            <button class="btn btn-delete" booking_id="{{ booking.id }}">Delete</button>
+          <p>Start Time: {{booking.start_time}}:00</p>
+          <p>Number seats: {{booking.num_seats}}</p>
+          <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
+          <button class="btn btn-delete" booking_id="{{ booking.id }}">Delete Booking</button>
         </div>
         {% endfor %}
     </div>
