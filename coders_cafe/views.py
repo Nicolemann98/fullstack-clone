@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Booking
 from .forms import BookingForm
@@ -27,7 +28,11 @@ def manage_booking(request, booking_id):
         if booking_form.is_valid():
             booking = booking_form.save(commit=False)
             booking.save()
-            return HttpResponseRedirect("success")
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Booking successfully edited'
+            )
+            return HttpResponseRedirect(reverse("bookings"))
     else:
         booking_form = BookingForm(instance=booking)
     
@@ -48,7 +53,11 @@ def create_booking(request):
             booking = booking_form.save(commit=False)
             setattr(booking, "user", request.user)
             booking.save()
-            return HttpResponseRedirect("success")
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Booking successfully created'
+            )
+            return HttpResponseRedirect(reverse("bookings"))
     else:
         booking_form = BookingForm()
 
@@ -66,4 +75,15 @@ def delete_booking(request, booking_id):
 
     if (booking.user == request.user):
         booking.delete()
-        return HttpResponseRedirect("success")
+        messages.add_message(
+            request, messages.SUCCESS,
+            'Booking successfully deleted'
+        )
+    else:
+        messages.add_message(
+            request, messages.ERROR,
+            'You can only delete your own booking'
+        )
+
+    return HttpResponseRedirect(reverse("bookings"))
+        

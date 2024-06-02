@@ -21,7 +21,7 @@
             <p>Start Time: {{booking.start_time}}</p>
             <p>Number seats: {{booking.num_seats}}</p>
             <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>
-            <a href="{% url 'delete_booking' booking.id %}">Delete Booking</a>
+            <button class="btn btn-delete" booking_id="{{ booking.id }}">Delete</button>
         </div>
         {% endfor %}
     </div>
@@ -33,5 +33,33 @@
     {% endif %}
 </section>
 
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete booking?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your booking?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
     
+{% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/bookings.js' %}"></script>
 {% endblock %}
