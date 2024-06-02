@@ -25,7 +25,8 @@ class BookingList(generic.ListView):
         if self.request.user.is_staff:
             return Booking.objects.filter(date__gte=datetime.today())
         else:
-            return Booking.objects.filter(user=self.request.user, date__gte=datetime.today())
+            return Booking.objects.filter(user=self.request.user,
+            date__gte=datetime.today())
 
 
 def manage_booking(request, booking_id):
@@ -159,7 +160,9 @@ def has_booking_exceeded_capacity(booking):
     """
     capacity = 20
 
-    all_overlapping_bookings = Booking.objects.filter(date=booking.date, start_time=booking.start_time).exclude(id=booking.id)
+    all_overlapping_bookings = Booking.objects.filter(
+        date = booking.date,
+        start_time = booking.start_time).exclude(id=booking.id)
     total_seats_reserved = booking.num_seats
     for other_booking in all_overlapping_bookings:
         total_seats_reserved += other_booking.num_seats

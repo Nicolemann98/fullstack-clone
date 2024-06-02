@@ -7,13 +7,11 @@ class Booking(models.Model):
     """
     Stores a single booking entry, related to :model:`auth.User`.
     """
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE
-    )
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
     date = models.DateField()
-    start_time = models.IntegerField(validators=[MinValueValidator(8), MaxValueValidator(19)])
+    start_time = models.IntegerField(
+        validators = [MinValueValidator(8), MaxValueValidator(19)])
     num_seats = models.IntegerField()
 
     class Meta:
         ordering = ['date', 'start_time']
-    
