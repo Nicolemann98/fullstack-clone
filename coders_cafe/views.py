@@ -13,10 +13,13 @@ class BookingList(generic.ListView):
     context_object_name = 'all_bookings_by_user'
 
     def get_queryset(self):
-        if (not self.request.user.is_authenticated):
+        if not self.request.user.is_authenticated:
             return Booking.objects.none()
             
-        return Booking.objects.filter(user=self.request.user, date__gte=datetime.today())
+        if self.request.user.is_staff:
+            return Booking.objects.filter(date__gte=datetime.today())
+        else:
+            return Booking.objects.filter(user=self.request.user, date__gte=datetime.today())
 
 
 def manage_booking(request, booking_id):

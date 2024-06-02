@@ -12,7 +12,7 @@
     {% if user.is_authenticated %}
 
     <div class="bookings">
-        <p>Welcome {{user.user_name}}</p>
+        <p>Welcome {{user.username}}</p>
         <p>All bookings have a duration of 1 hour</p>
         <a href="{% url 'create_booking' %}">
             Create new booking
