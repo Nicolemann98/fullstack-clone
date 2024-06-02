@@ -19,6 +19,7 @@
         </a>
         {% for booking in object_list %}
         <div class="booking">
+          <p>Date: {{booking.date}}</p>
           <p>Start Time: {{booking.start_time}}:00</p>
           <p>Number seats: {{booking.num_seats}}</p>
           <a href="{% url 'manage_booking' booking.id %}">Manage Booking</a>

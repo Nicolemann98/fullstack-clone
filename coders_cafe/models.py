@@ -10,4 +10,7 @@ class Booking(models.Model):
     date = models.DateField()
     start_time = models.IntegerField(validators=[MinValueValidator(8), MaxValueValidator(19)])
     num_seats = models.IntegerField()
+
+    class Meta:
+        ordering = ['date', 'start_time']
     

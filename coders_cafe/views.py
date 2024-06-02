@@ -16,7 +16,7 @@ class BookingList(generic.ListView):
         if (not self.request.user.is_authenticated):
             return Booking.objects.none()
             
-        return Booking.objects.filter(user=self.request.user)
+        return Booking.objects.filter(user=self.request.user, date__gte=datetime.today())
 
 
 def manage_booking(request, booking_id):
