@@ -129,9 +129,10 @@ def validate_booking(booking, request):
 def has_booking_exceeded_capacity(booking):
     capacity = 20
 
-    all_overlapping_bookings = Booking.objects.filter(start_time=booking.start_time)
+    all_overlapping_bookings = Booking.objects.filter(date=booking.date, start_time=booking.start_time).exclude(id=booking.id)
     total_seats_reserved = booking.num_seats
     for other_booking in all_overlapping_bookings:
+        print("id" + str(other_booking.id))
         total_seats_reserved += other_booking.num_seats
     
     if total_seats_reserved > capacity:
