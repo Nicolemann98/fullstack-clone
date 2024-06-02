@@ -8,9 +8,15 @@ from datetime import datetime
 
 
 class BookingList(generic.ListView):
+    """
+    Returns all bookings in :model:`coders_cafe.Booking`
+    that elong to the logged in user and that are either
+    for today or any date in the future and displays them 
+    """ 
     model = Booking
     template_name = "coders_cafe/bookings.html"
     context_object_name = 'all_bookings_by_user'
+    paginate_by: 6
 
     def get_queryset(self):
         if not self.request.user.is_authenticated:
@@ -23,6 +29,11 @@ class BookingList(generic.ListView):
 
 
 def manage_booking(request, booking_id):
+    """
+    Displays an individual :model:`coders_cafe.Booking`
+    and allows the user to submit a post request to edit
+    that booking
+    """
     booking = get_object_or_404(Booking, pk=booking_id)
 
     if (booking.user != request.user):
@@ -63,6 +74,9 @@ def manage_booking(request, booking_id):
 
 
 def create_booking(request):
+    """
+    Create an individual booking
+    """
     if request.method == "POST":
         booking_form = BookingForm(data=request.POST)
         if booking_form.is_valid():
@@ -77,13 +91,17 @@ def create_booking(request):
                         "booking_form": booking_form,
                     },
                 )
+            
+            else:
+                booking.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Booking successfully created'
+                )
+                return HttpResponseRedirect(reverse("bookings"))
+        else:
+            messages.add_message(request, messages.ERROR, "Booking not valid")
 
-            booking.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Booking successfully created'
-            )
-            return HttpResponseRedirect(reverse("bookings"))
     else:
         booking_form = BookingForm()
 
@@ -97,6 +115,9 @@ def create_booking(request):
 
 
 def delete_booking(request, booking_id):
+    """
+    Delete an individual booking
+    """
     booking = get_object_or_404(Booking, pk=booking_id)
 
     if (booking.user == request.user):
@@ -115,6 +136,11 @@ def delete_booking(request, booking_id):
         
 
 def validate_booking(booking, request):
+    """
+    Perform validation on the user's submitted booking
+    Including ensuring the booking time/date is in the future
+    and that the cafe does no exceed their total number of seats
+    """
     if has_booking_exceeded_capacity(booking):        
         messages.add_message(request, messages.ERROR, "Booking unsuccessful. Not enough seats available")
         return False
@@ -127,12 +153,15 @@ def validate_booking(booking, request):
 
 
 def has_booking_exceeded_capacity(booking):
+    """
+    Ensures the incoming booking does not make the cafe
+    exceed their total number of seats
+    """
     capacity = 20
 
     all_overlapping_bookings = Booking.objects.filter(date=booking.date, start_time=booking.start_time).exclude(id=booking.id)
     total_seats_reserved = booking.num_seats
     for other_booking in all_overlapping_bookings:
-        print("id" + str(other_booking.id))
         total_seats_reserved += other_booking.num_seats
     
     if total_seats_reserved > capacity:
@@ -142,6 +171,9 @@ def has_booking_exceeded_capacity(booking):
 
 
 def is_chosen_datetime_in_past(booking):
+    """
+    Ensures the incoming booking is in the future
+    """
     if booking.date < datetime.today().date():
         return True
     elif booking.date == datetime.today().date() and booking.start_time < datetime.now().hour:

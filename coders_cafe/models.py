@@ -4,6 +4,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Booking(models.Model):
+    """
+    Stores a single booking entry, related to :model:`auth.User`.
+    """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE
     )
