@@ -16,7 +16,6 @@ class BookingList(generic.ListView):
     model = Booking
     template_name = "coders_cafe/bookings.html"
     context_object_name = 'all_bookings_by_user'
-    paginate_by: 6
 
     def get_queryset(self):
         if not self.request.user.is_authenticated:
@@ -34,6 +33,13 @@ def manage_booking(request, booking_id):
     Displays an individual :model:`coders_cafe.Booking`
     and allows the user to submit a post request to edit
     that booking
+    **Context**
+    ``booking``
+    an instance of :model:`coders_cafe.Booking`.
+    ``booking_form``
+    an instance of :form:`coders_cafe.BookingForm`
+    **Template**
+    :template:`coders_cafe/manage_booking.html`
     """
     booking = get_object_or_404(Booking, pk=booking_id)
 
@@ -77,6 +83,13 @@ def manage_booking(request, booking_id):
 def create_booking(request):
     """
     Create an individual booking
+    **Context**
+    ``booking``
+    an instance of :model:`coders_cafe.Booking`.
+    ``booking_form``
+    an instance of :form:`coders_cafe.BookingForm`
+    **Template**
+    :template:`coders_cafe/creaete_booking.html`
     """
     if request.method == "POST":
         booking_form = BookingForm(data=request.POST)
@@ -118,6 +131,9 @@ def create_booking(request):
 def delete_booking(request, booking_id):
     """
     Delete an individual booking
+    **Context**
+    ``booking``
+    an instance of :model:`coders_cafe.Booking`.
     """
     booking = get_object_or_404(Booking, pk=booking_id)
 
@@ -141,6 +157,9 @@ def validate_booking(booking, request):
     Perform validation on the user's submitted booking
     Including ensuring the booking time/date is in the future
     and that the cafe does no exceed their total number of seats
+    **Context**
+    ``booking``
+    an instance of :model:`coders_cafe.Booking`.
     """
     if has_booking_exceeded_capacity(booking):        
         messages.add_message(request, messages.ERROR, "Booking unsuccessful. Not enough seats available")
@@ -157,6 +176,9 @@ def has_booking_exceeded_capacity(booking):
     """
     Ensures the incoming booking does not make the cafe
     exceed their total number of seats
+    **Context**
+    ``booking``
+    an instance of :model:`coders_cafe.Booking`.
     """
     capacity = 20
 
@@ -176,6 +198,9 @@ def has_booking_exceeded_capacity(booking):
 def is_chosen_datetime_in_past(booking):
     """
     Ensures the incoming booking is in the future
+    **Context**
+    ``booking``
+    an instance of :model:`coders_cafe.Booking`.
     """
     if booking.date < datetime.today().date():
         return True
