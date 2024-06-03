@@ -35,6 +35,45 @@ Upon clicking the download button on the menu page, users will have the option t
 
 ![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/e3207977-0aaf-4725-85a3-09f84d018f52)
 
+
+Now we will start testing the booking functionality. Logging in as JohnDoe, we can see that he has no bookings
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/e3516df0-a2b6-414a-b930-d041a36044d4)
+
+We will click create booking and fill in the form
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/9f99628c-3fec-47e7-a5ca-3a7a5e0bcd8d)
+
+Upon clicking submit, we can see that this booking has been added, along with a confirmation message
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/edf28df4-73ff-464b-a768-675c900f1f03)
+
+The cafe has a total of 20 seats, now we will try to create the following booking that will exceed the cafe's capacity
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/b4a9ac5e-c28a-4b5e-8db9-f298f7f75601)
+
+Clicking submit, we are given an error message telling us there aren't enough seats
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/1028da96-0159-4123-98bc-2e5a8c1d2234)
+
+And the booking has not been saved
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/e182766f-0318-4a7d-b215-9ae3076b4b1d)
+
+Similarly if we try to create a booking in the past
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/7c17e097-be30-4282-8187-ff10fdca3239)
+
+Finally if we click delete on the booking, we get a warning message
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/0ee45471-a26f-4459-8661-87aedd60b8ff)
+
+And we see that if we click delete on the pop-up to confirm, the booking is deleted
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/700a419a-b00a-474c-afa8-174bda604db8)
+
+
+
 ## Bugs 
 
 There was a bug, that when editing a booking, the validation for number of seats failed because the validator got all the bookings with the same start time,
