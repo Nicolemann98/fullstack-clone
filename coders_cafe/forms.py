@@ -28,5 +28,6 @@ class BookingForm(forms.ModelForm):
             (18, "6pm"),
             (19, "7pm"))
         widgets = {
-            'date': forms.widgets.DateInput(attrs = {'type': 'date'}),
-            'start_time': forms.Select(choices = time_map),}
+            'date': forms.widgets.DateInput(attrs={'type': 'date'}),
+            'start_time': forms.Select(choices=time_map), }
+            
