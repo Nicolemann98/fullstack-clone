@@ -70,7 +70,23 @@ views.py
 ![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/f7c2bc0f-6a94-4c9b-9492-910c34e23b3c)
 
 
+### HTML W3C Validator
 
+Index Page
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/5e189f2a-8c12-40aa-a08b-0987f0def4e0)
+
+Menu Page
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/7782b4f2-7a30-4554-91eb-8926ab2f3dcc)
+
+Account Page
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/45fd9387-1328-4183-96a3-5bf979b60b97)
+
+Bookings Page
+
+![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/17d11e11-6abc-4658-adde-b318d5a702e8)
 
 
 
