@@ -1,5 +1,5 @@
 # Coder's Cafe 
-This is a fullstack project written in Pyhton using the Django framework on the backend, connecting to a PostgreSQL database. Using the bootstrap framework on the frontend within HTML and CSS.
+This is a fullstack project written in Python using the Django framework on the backend, connecting to a PostgreSQL database. Using the bootstrap framework on the frontend within HTML and CSS.
 
 ## Plan 
 I have detailed my planned features within User Stories, which can be found at: https://github.com/users/Nicolemann98/projects/1/views/1
@@ -128,7 +128,31 @@ Bookings Page
 ![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/17d11e11-6abc-4658-adde-b318d5a702e8)
 
 
+## Deployment 
 
+This project was deployed onto Heroku, the link for which is: https://nicole-full-stack-project-7589e5b487d3.herokuapp.com/
+
+## Credits 
+
+- Code institute course materials
+- Django documentation: https://docs.djangoproject.com/en/5.0/
+- Font Awesome for icons
+- Favicon created from https://favicon.io/favicon-converter/
+- Photos used on main page are from:
+    https://blog.hyperiondev.com/index.php/2018/08/06/what-kind-of-companies-do-coders-work-for/  (coder's photo)
+    https://www.chinadaily.com.cn/bizchina/tech/2016-03/09/content_23789709.htm (mock cafe photo)
+- Photo of scone on menu page from Pexels
+
+## Struggles
+
+This project was very challenging in a number of ways, not only as it was my first ever fullstack project, but also because there was
+a large number of new materials to also learn in addition to changing my existing skills to adapt to the additon of Bootstrap and Django.
+
+There were a numnber of issues with deployment which needed to be amended to fix the functionality of the bookings and account pages, and also a number of differences in the styling upon deployment.
+
+I received terminal errors when trying to run unit tests, regarding not being able to connect to the database, after searching online forums for help, I found that adding the following line under the databases section of the setttings.py file 
+
+```del DATABASES['default']['OPTIONS']['sslmode']```
 
 
 
