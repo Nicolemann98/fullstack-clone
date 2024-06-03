@@ -22,6 +22,6 @@ urlpatterns = [
          views.manage_booking,
          name='manage_booking'),
     path('bookings/delete-booking/<int:booking_id>',
-         views.delete_booking
+         views.delete_booking,
          name='delete_booking'),
 ]
