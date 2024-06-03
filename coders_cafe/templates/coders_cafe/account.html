@@ -11,17 +11,21 @@
 
 {% if user.is_authenticated %}
 <p>Welcome {{user.username}}</p>
-<li class="nav-item">
-    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-</li>
+<menu>
+    <li class="nav-item">
+        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+    </li>
+</menu>
 {% else %}
-<li class="nav-item">
-    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-        href="{% url 'account_signup' %}">Register</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-</li>
+<menu>
+    <li class="nav-item">
+        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+            href="{% url 'account_signup' %}">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+    </li>
+</menu>
 {% endif %}
 
 
