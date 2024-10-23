@@ -132,6 +132,8 @@ Bookings Page
 
 This project was deployed onto Heroku, the link for which is: https://nicole-full-stack-project-7589e5b487d3.herokuapp.com/
 
+Automatic deployments are enabled through Heroku. To deploy, simply git commit and push to the main branch.
+
 ## Credits 
 
 - Code institute course materials
@@ -150,7 +152,7 @@ a large number of new materials to also learn in addition to changing my existin
 
 There were a numnber of issues with deployment which needed to be amended to fix the functionality of the bookings and account pages, and also a number of differences in the styling upon deployment.
 
-I received terminal errors when trying to run unit tests, regarding not being able to connect to the database, after searching online forums for help, I found that adding the following line under the databases section of the setttings.py file 
+I received terminal errors when trying to run unit tests, regarding not being able to connect to the database, after searching online forums for help, I found that adding the following line under the databases section of the settings.py file 
 
 ```del DATABASES['default']['OPTIONS']['sslmode']```
 
