@@ -1,8 +1,10 @@
 # Coder's Cafe 
 This is a fullstack project written in Python using the Django framework on the backend, connecting to a PostgreSQL database. Using the bootstrap framework on the frontend within HTML and CSS.
 
-## Plan 
+## Plan & Design Process
 I have detailed my planned features within User Stories, which can be found at: https://github.com/users/Nicolemann98/projects/1/views/1
+
+The aim was to make a site that would be accessible and easy to navigate - the colour scheme adding a good contrast. All relevant features for this project have been inclued in the above link with bulletpoint analysis.
 
 ## Important notes 
 The staff user that can view all of the bookings on the booking screen is as follows, username: `staff.member` & password is: `Password11*`.
