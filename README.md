@@ -129,6 +129,10 @@ Bookings Page
 
 ![image](https://github.com/Nicolemann98/My-fullstack-project/assets/144236128/17d11e11-6abc-4658-adde-b318d5a702e8)
 
+The only pages that fail the validations are the ones using the Django forms (which can delibarately fail them for performance reasons). For example the signup screen [fails the validation](https://validator.w3.org/nu/?doc=https://nicole-full-stack-project-7589e5b487d3.herokuapp.com/accounts/signup/). But looking into the error, we can see that this code is not in my project, but auto-generated from Django forms so can be ignored.
+
+![image](https://github.com/user-attachments/assets/40cd3a6b-253a-46b7-bf98-d72a9f648d03)
+
 
 ## Deployment 
 
