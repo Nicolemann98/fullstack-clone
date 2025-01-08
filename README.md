@@ -140,7 +140,26 @@ The only pages that fail the validations are the ones using the Django forms (wh
 
 This project was deployed onto Heroku, the link for which is: https://nicole-full-stack-project-7589e5b487d3.herokuapp.com/
 
-Automatic deployments are enabled through Heroku. To deploy, simply git commit and push to the main branch.
+Automatic deployments are enabled through Heroku. To deploy, simply git commit and push to the main branch. If however you want to host it yourself follow the following instructions. Note that I am assuming that you have a Heroku account, a GitHub account, and git bash installed with it linked to your GitHub account. If that is not the case, do that now.
+
+First start by cloning this repository into your local GitHub account using the following steps. [See the GitHub documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository)), my steps are a copy provided in that documentation, with a few minor tweaks to make them specific to this repo.
+
+1. Open git bash in a desired location on your desktop
+2. Create a bare clone of this repository
+   ```
+   git clone --bare https://github.com/Nicolemann98/My-fullstack-project.git
+   ```
+4. Open your GitHub account and create a new, blank repository, this should provide a link to use in the next step
+5. Mirror-push your clone to the newly created repository, replacing the link with the link copied in the previous step
+   ```
+   cd My-fullstack-project.git
+   git push --mirror https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git
+   ```
+6. Remove the temporary local repository you created earlier
+
+Now you should have a version of this repository within your GitHub account. Next, deploy to Heroku.
+
+// TODO: Heroku deployment
 
 ## Credits 
 
